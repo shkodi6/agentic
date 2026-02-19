@@ -21,24 +21,24 @@
     });
   }
 
-  var rolesTabs = document.querySelectorAll('.roles__tab');
-  var rolesPanels = document.querySelectorAll('.roles__panel');
-  if (rolesTabs.length && rolesPanels.length) {
-    function switchRolesTo(topic) {
-      rolesTabs.forEach(function (t) {
+  var agentsTabs = document.querySelectorAll('.agents__tab');
+  var agentsPanels = document.querySelectorAll('.agents__panel');
+  if (agentsTabs.length && agentsPanels.length) {
+    function switchAgentsTo(topic) {
+      agentsTabs.forEach(function (t) {
         var isActive = t.getAttribute('data-tab') === topic;
         t.classList.toggle('is-active', isActive);
         t.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
-      rolesPanels.forEach(function (p) {
+      agentsPanels.forEach(function (p) {
         var match = p.getAttribute('data-topic') === topic;
         p.classList.toggle('is-visible', match);
         p.hidden = !match;
       });
     }
-    rolesTabs.forEach(function (tab) {
+    agentsTabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
-        switchRolesTo(tab.getAttribute('data-tab'));
+        switchAgentsTo(tab.getAttribute('data-tab'));
       });
     });
   }
